@@ -25,7 +25,7 @@ mall 是一个前后端分离的 PC 端电商系统，包含**前台商城、后
 
 **后端**
 - 语言/框架：Java 、Spring Boot 
-- 微服务：Spring Cloud Alibaba 2021.0.5.0（Nacos、OpenFeign、Sentinel、Seata）、Spring Cloud Gateway
+- 微服务：Spring Cloud Alibaba（Nacos、OpenFeign、Sentinel、Seata）、Spring Cloud Gateway
 - ORM：MyBatis-Plus
 - 数据库/中间件：MySQL 8、Redis、RabbitMQ
 - 安全：JWT、Spring Security、BCrypt
