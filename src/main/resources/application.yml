@@ -1,0 +1,108 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: shop-mall
+  # 数据库（Druid 连接池)
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: 123456
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+  # Redis
+  redis:
+    host: 192.168.88.132
+    port: 6379
+    password: 142857
+    database: 0
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  # RabbitMQ
+  rabbitmq:
+    host: 192.168.88.132
+    port: 5672
+    virtual-host: /
+    username: admin
+    password: 123456
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  # knife4j 兼容 springfox 需要的匹配策略
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.niit.shopmall.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+# 自定义业务配置
+mall:
+  jwt:
+    # HS256 密钥，长度需 >= 32 字节
+    secret: shop-mall-jwt-secret-key-for-graduation-project-2026
+    expire-hours: 24
+  redis:
+    # Redis 缓存开关：true 走缓存，false 直查库
+    enabled: true
+  mq:
+    # RabbitMQ 开关：true 用延迟队列做订单超时，false 用定时任务兜底
+    enabled: true
+  order:
+    # 待付款订单超时自动取消时间（分钟）
+    timeout-minutes: 15
+    # 秒杀单超时自动取消时间（分钟）
+    seckill-timeout-minutes: 5
+  upload:
+    # 本地图片上传目录
+    path: ./upload/
+
+knife4j:
+  enable: true
+  production: false

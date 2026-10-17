@@ -1,0 +1,42 @@
+server:
+  port: 8103
+
+spring:
+  application:
+    name: mall-order-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+mybatis-plus:
+  type-aliases-package: com.niit.mall.order.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+
+# Seata 分布式事务（AT 模式，需先启动 Seata Server 并在 mall 库建 undo_log 表）
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: mall_tx_group
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      application: seata-server
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      group: SEATA_GROUP
+      data-id: seataServer.properties

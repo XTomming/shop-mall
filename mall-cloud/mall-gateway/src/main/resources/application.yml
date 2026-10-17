@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mall-gateway
+  config:
+    import: nacos:mall-common.yml
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+    gateway:
+      routes:
+        - id: mall-user-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/portal/login,/api/portal/register,/api/portal/member/**,/api/portal/address/**,/api/admin/login,/api/admin/member/**,/api/admin/sys/**,/api/admin/service-user/**,/api/service/login,/api/service/online
+        - id: mall-product-service
+          uri: lb://mall-product-service
+          predicates:
+            - Path=/api/portal/home,/api/portal/product/**,/api/portal/category/**,/api/portal/comment/**,/api/portal/seckill/**,/api/admin/product/**,/api/admin/category/**,/api/admin/comment/**,/api/admin/seckill/**,/api/admin/banner/**,/api/admin/notice/**
+        - id: mall-order-service
+          uri: lb://mall-order-service
+          predicates:
+            - Path=/api/portal/cart/**,/api/portal/order/**,/api/portal/pay/**
+        - id: mall-after-sale-service
+          uri: lb://mall-after-sale-service
+          predicates:
+            - Path=/api/portal/after-sale/**,/api/service/after-sale/**,/api/portal/conversation/**,/api/service/conversation/**
+        - id: mall-after-sale-ws
+          uri: lb:ws://mall-after-sale-service
+          predicates:
+            - Path=/ws/**
+
+# JWT 密钥从 Nacos 配置中心读取（mall-common.yml）

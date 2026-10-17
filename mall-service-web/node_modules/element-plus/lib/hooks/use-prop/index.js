@@ -1,0 +1,11 @@
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+let vue = require("vue");
+//#region ../../packages/hooks/use-prop/index.ts
+const useProp = (name) => {
+	const vm = (0, vue.getCurrentInstance)();
+	return (0, vue.computed)(() => (vm?.proxy?.$props)?.[name]);
+};
+//#endregion
+exports.useProp = useProp;
+
+//# sourceMappingURL=index.js.map

@@ -1,0 +1,191 @@
+Object.defineProperties(exports, {
+	__esModule: { value: true },
+	[Symbol.toStringTag]: { value: "Module" }
+});
+//#region ../../packages/locale/lang/uk.ts
+var uk_default = {
+	name: "uk",
+	el: {
+		breadcrumb: { label: "Навігаційний ланцюжок" },
+		colorpicker: {
+			confirm: "OK",
+			clear: "Очистити",
+			defaultLabel: "вибір кольору",
+			description: "поточний колір {color}. натисніть enter, щоб обрати новий колір.",
+			alphaLabel: "виберіть значення альфа-каналу",
+			alphaDescription: "альфа-канал {alpha}, поточний колір {color}",
+			hueLabel: "виберіть значення відтінку",
+			hueDescription: "відтінок {hue}, поточний колір {color}",
+			svLabel: "виберіть насиченість і яскравість",
+			svDescription: "насиченість {saturation}, яскравість {brightness}, поточний колір {color}",
+			predefineDescription: "обрати {value} як колір"
+		},
+		datepicker: {
+			now: "Зараз",
+			today: "Сьогодні",
+			cancel: "Відміна",
+			clear: "Очистити",
+			confirm: "OK",
+			dateTablePrompt: "Використовуйте стрілки та enter, щоб обрати день місяця",
+			monthTablePrompt: "Використовуйте стрілки та enter, щоб обрати місяць",
+			quarterTablePrompt: "Використовуйте стрілки та enter, щоб обрати квартал",
+			yearTablePrompt: "Використовуйте стрілки та enter, щоб обрати рік",
+			selectedDate: "Обрана дата",
+			selectDate: "Вибрати дату",
+			selectTime: "Вибрати час",
+			startDate: "Дата початку",
+			startTime: "Час початку",
+			endDate: "Дата завершення",
+			endTime: "Час завершення",
+			prevYear: "Попередній Рік",
+			nextYear: "Наступний Рік",
+			prevMonth: "Попередній Місяць",
+			nextMonth: "Наступний Місяць",
+			year: "",
+			month1: "Січень",
+			month2: "Лютий",
+			month3: "Березень",
+			month4: "Квітень",
+			month5: "Травень",
+			month6: "Червень",
+			month7: "Липень",
+			month8: "Серпень",
+			month9: "Вересень",
+			month10: "Жовтень",
+			month11: "Листопад",
+			month12: "Грудень",
+			weeks: {
+				sun: "Нд",
+				mon: "Пн",
+				tue: "Вт",
+				wed: "Ср",
+				thu: "Чт",
+				fri: "Пт",
+				sat: "Сб"
+			},
+			weeksFull: {
+				sun: "Неділя",
+				mon: "Понеділок",
+				tue: "Вівторок",
+				wed: "Середа",
+				thu: "Четвер",
+				fri: "П'ятниця",
+				sat: "Субота"
+			},
+			months: {
+				jan: "Січ",
+				feb: "Лют",
+				mar: "Бер",
+				apr: "Кві",
+				may: "Тра",
+				jun: "Чер",
+				jul: "Лип",
+				aug: "Сер",
+				sep: "Вер",
+				oct: "Жов",
+				nov: "Лис",
+				dec: "Гру"
+			}
+		},
+		input: { characters: "{count} / {max} символів" },
+		inputNumber: {
+			decrease: "зменшити значення",
+			increase: "збільшити значення"
+		},
+		select: {
+			loading: "Завантаження",
+			noMatch: "Співпадінь не знайдено",
+			noData: "Немає даних",
+			placeholder: "Обрати"
+		},
+		mention: { loading: "Завантаження" },
+		dropdown: { toggleDropdown: "Перемкнути список" },
+		cascader: {
+			noMatch: "Співпадінь не знайдено",
+			loading: "Завантаження",
+			placeholder: "Обрати",
+			noData: "Немає даних"
+		},
+		pagination: {
+			goto: "Перейти",
+			pagesize: "на сторінці",
+			total: "Всього {total}",
+			pageClassifier: "",
+			page: "Сторінка",
+			prev: "Перейти на попередню сторінку",
+			next: "Перейти на наступну сторінку",
+			currentPage: "сторінка {pager}",
+			prevPages: "Попередні {pager} стор.",
+			nextPages: "Наступні {pager} стор.",
+			deprecationWarning: "Виявлено застаріле використання, зверніться до документації el-pagination для деталей"
+		},
+		dialog: { close: "Закрити це вікно" },
+		drawer: { close: "Закрити це вікно" },
+		messagebox: {
+			title: "Повідомлення",
+			confirm: "OK",
+			cancel: "Відміна",
+			error: "Неприпустимий ввід даних",
+			close: "Закрити це вікно"
+		},
+		upload: {
+			deleteTip: "натисніть кнопку щоб видалити",
+			delete: "Видалити",
+			preview: "Перегляд",
+			continue: "Продовжити"
+		},
+		slider: {
+			defaultLabel: "повзунок від {min} до {max}",
+			defaultRangeStartLabel: "виберіть початкове значення",
+			defaultRangeEndLabel: "виберіть кінцеве значення"
+		},
+		table: {
+			emptyText: "Немає даних",
+			confirmFilter: "Підтвердити",
+			resetFilter: "Скинути",
+			clearFilter: "Все",
+			sumText: "Сума",
+			selectAllLabel: "Вибрати всі рядки",
+			selectRowLabel: "Вибрати цей рядок",
+			expandRowLabel: "Розгорнути цей рядок",
+			collapseRowLabel: "Згорнути цей рядок",
+			sortLabel: "Сортувати за {column}",
+			filterLabel: "Фільтрувати за {column}"
+		},
+		tag: { close: "Закрити цей тег" },
+		tour: {
+			next: "Далі",
+			previous: "Назад",
+			finish: "Завершити",
+			close: "Закрити це вікно"
+		},
+		tree: { emptyText: "Немає даних" },
+		transfer: {
+			noMatch: "Співпадінь не знайдено",
+			noData: "Немає даних",
+			titles: ["Список 1", "Список 2"],
+			filterPlaceholder: "Введіть ключове слово",
+			noCheckedFormat: "{total} пунктів",
+			hasCheckedFormat: "{checked}/{total} вибрано"
+		},
+		image: { error: "ПОМИЛКА" },
+		pageHeader: { title: "Назад" },
+		popconfirm: {
+			confirmButtonText: "Так",
+			cancelButtonText: "Ні"
+		},
+		carousel: {
+			leftArrow: "Стрілка каруселі вліво",
+			rightArrow: "Стрілка каруселі вправо",
+			indicator: "Перейти до слайда {index}"
+		},
+		inputOTP: {
+			groupLabel: "Введення одноразового коду",
+			defaultLabel: "Введіть символ {index} одноразового коду"
+		}
+	}
+};
+//#endregion
+exports.default = uk_default;
+
+//# sourceMappingURL=uk.js.map

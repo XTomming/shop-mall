@@ -1,0 +1,84 @@
+{
+  "name": "@stomp/stompjs",
+  "version": "7.5.0",
+  "description": "STOMP client for Javascript and Typescript",
+  "scripts": {
+    "clean": "rm -rf bundles esm6",
+    "rollup": "rollup -c && rm -rf bundles/esm6/",
+    "build": "npm run clean && npx tsc && npm run rollup && rm -rf bundles/compatibility bundles/*.d.ts && cp src/ensure-commonjs/package.json bundles/ && date",
+    "test": "playwright test --project=node",
+    "test:coverage": "c8 playwright test --project=node",
+    "lint": "eslint",
+    "prettier": "prettier --write .",
+    "prepublishOnly": "npm run lint && npm run build && playwright test && bin/smoke-test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stomp-js/stompjs.git"
+  },
+  "keywords": [
+    "STOMP",
+    "RabbitMQ",
+    "ActiveMQ",
+    "Websocket",
+    "messaging",
+    "queue",
+    "JavaScript"
+  ],
+  "author": "deepak@kreatio.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stomp-js/stompjs/issues"
+  },
+  "homepage": "https://github.com/stomp-js/stompjs#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.61.1",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/sinon": "^21.0.1",
+    "c8": "^11.0.0",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "onchange": "^7.1.0",
+    "prettier": "^3.6.2",
+    "rollup": "^4.50.2",
+    "sinon": "^21.1.2",
+    "ts-loader": "^9.5.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.59.1",
+    "ws": "^8.18.3"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./bundles/stomp.umd.js"
+      },
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./esm6/index.js"
+      }
+    }
+  },
+  "main": "./bundles/stomp.umd.js",
+  "browser": "./bundles/stomp.umd.js",
+  "typings": "index.d.ts",
+  "sideEffects": false,
+  "c8": {
+    "reporter": [
+      "text",
+      "html",
+      "lcov"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/stomp-config.ts"
+    ],
+    "all": true
+  }
+}
